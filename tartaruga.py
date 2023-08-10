@@ -1,12 +1,24 @@
-import turtle as t
-from random import random
+import turtle
+from random import *
 
-x_bound, y_bound = t.screensize()
-angle = int(25)
-t.right(angle)
-t.speed(speed=10)
+t = turtle.Turtle()
+llx = -100
+lly = -100
+urx = 100
+ury = 100
+turtle.setworldcoordinates(llx, lly, urx, ury)
+
+x_bound, y_bound = turtle.screensize()
+angle = randint(0, 360)
+t.seth(angle)
+t.speed(10)
 while True:
-    t.forward(1)
-    if t.xcor() >= x_bound:
-        pass
-t.mainloop()
+    t.forward(5)
+    if t.xcor() >= urx:
+        t.seth(180 - t.heading())
+    if t.xcor() <= llx:
+        t.seth(180 - t.heading())
+    if t.ycor() >= ury:
+        t.seth(360 - t.heading())
+    if t.ycor() <= lly:
+        t.seth(360 - t.heading())
