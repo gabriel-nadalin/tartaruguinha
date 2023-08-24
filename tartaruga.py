@@ -14,11 +14,5 @@ t.seth(angle)
 t.speed(10)
 while True:
     t.forward(5)
-    if t.xcor() >= urx:
-        t.seth(180 - t.heading())
-    if t.xcor() <= llx:
-        t.seth(180 - t.heading())
-    if t.ycor() >= ury:
-        t.seth(360 - t.heading())
-    if t.ycor() <= lly:
-        t.seth(360 - t.heading())
+    if t.xcor() >= urx or t.xcor() <= llx: t.seth(180 - t.heading())
+    if t.ycor() >= ury or t.ycor() <= lly: t.seth(360 - t.heading())
